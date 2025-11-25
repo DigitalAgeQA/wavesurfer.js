@@ -438,7 +438,9 @@ class EnvelopePlugin extends BasePlugin<EnvelopePluginEvents, EnvelopePluginOpti
         this.initPolyline()
 
         this.points.forEach((point) => {
-          this.addPolyPoint(point, duration)
+            if (!isNaN(point.time)) {
+                this.addPolyPoint(point, duration)
+            }
         })
       }),
 
