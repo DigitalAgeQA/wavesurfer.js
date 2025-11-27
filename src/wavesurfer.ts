@@ -80,6 +80,8 @@ export type WaveSurferOptions = {
   cspNonce?: string
   /** Override the Blob MIME type */
   blobMimeType?: string
+  /** Global Volume Multiplier */
+  globalVolume?: number | 1
 }
 
 const defaultOptions = {

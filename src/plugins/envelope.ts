@@ -520,7 +520,7 @@ class EnvelopePlugin extends BasePlugin<EnvelopePluginEvents, EnvelopePluginOpti
     const timeDiff = nextPoint.time - prevPoint.time
     const volumeDiff = nextPoint.volume - prevPoint.volume
     const newVolume = prevPoint.volume + (time - prevPoint.time) * (volumeDiff / timeDiff)
-    const clampedVolume = Math.min(1, Math.max(0, newVolume))
+    const clampedVolume = Math.min(1, Math.max(0, newVolume * (this.wavesurfer.options.globalVolume || 1 )))
     const roundedVolume = Math.round(clampedVolume * 100) / 100
 
     if (roundedVolume !== this.getCurrentVolume()) {
